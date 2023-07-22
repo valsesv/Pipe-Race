@@ -1,0 +1,9 @@
+lastUpgrade=01012
+proj.pluginVersion=0.10.12
+proj.AppId=922317499537
+and.BundleId=com.DeVandD.PipeRace
+proj.classDir=Assets
+proj.ConstantsClassName=GPS
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--Google+Play+game+services+IDs.+Save+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--app_id--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e922317499537%3c%2fstring%3e%0d%0a++%3c%21--package_name--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.DeVandD.PipeRace%3c%2fstring%3e%0d%0a++%3c%21--leaderboard+BestScore--%3e%0d%0a++%3cstring+name%3d%22leaderboard_bestscore%22+translatable%3d%22false%22%3eCgkIkdmg8-saEAIQAQ%3c%2fstring%3e%0d%0a%3c%2fresources%3e
+and.ClientId=922317499537-6a9t2fhmvk70mijmcp6hcev04l5q0sru.apps.googleusercontent.com
+android.SetupDone=true
