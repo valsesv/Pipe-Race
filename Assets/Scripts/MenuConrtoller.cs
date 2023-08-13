@@ -21,11 +21,8 @@ public class MenuConrtoller : MonoBehaviour
     public Sprite Locked;
     private bool IfLevels;
 
-    [HideInInspector] private const string leaderBoard = "CgkIkdmg8-saEAIQAQ";
-
     private void Awake()
     {
-            Time.timeScale = 1;
         // if (!PlayerPrefs.HasKey("HowToDO"))
         //     PlayerPrefs.SetInt("HowToDO", 1); // how to move
         if (!PlayerPrefs.HasKey("soundgameO"))
@@ -56,16 +53,7 @@ public class MenuConrtoller : MonoBehaviour
         {
             shopTut.SetActive(true);
         }
-        //acceleration
-        /*if (PlayerPrefs.GetInt("HowToDO") == 0)
-        {
-            LeftMove.SetActive(false);
-            RightMove.SetActive(false);
-            AcControl.GetComponent<Image>().color = Color.green;
-        }
-        else
-            UsControl.GetComponent<Image>().color = Color.green;
-        */
+        
         SetAnim = SettingsPanel.GetComponent<Animator>();
         SizeAnimPanel = panel.GetComponent<Animator>();
         SizeAnimPanelShop = ShopPannel.GetComponent<Animator>();
@@ -264,27 +252,4 @@ public class MenuConrtoller : MonoBehaviour
         yield return new WaitForSeconds(1f);
     }
 
-    /*public void ChangeControl(int Type)
-    {
-        PlayerPrefs.SetInt("HowToDO", Type);
-        if (Type == 0)
-        {
-            LeftMove.SetActive(false);
-            RightMove.SetActive(false);
-            AcControl.GetComponent<Image>().color = Color.green;
-            UsControl.GetComponent<Image>().color = Color.grey;
-        }
-        else
-        {
-            LeftMove.SetActive(true);
-            RightMove.SetActive(true);
-            UsControl.GetComponent<Image>().color = Color.green;
-            AcControl.GetComponent<Image>().color = Color.grey;
-        }
-    }*/
-
-    public void exitGame()
-    {
-        Application.Quit();
-    }
 }
