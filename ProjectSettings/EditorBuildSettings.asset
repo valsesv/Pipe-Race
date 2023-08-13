@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/game.unity
+    path: Assets/PipeRace/Scenes/game.unity
     guid: 9d12a4d1e8c89404b842e9855cbd3cc1
   m_configObjects: {}
