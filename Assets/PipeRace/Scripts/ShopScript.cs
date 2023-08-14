@@ -15,7 +15,7 @@ public class ShopScript : MonoBehaviour
 
     private void Awake()
     {
-        texts[4].text = "" + PlayerPrefs.GetInt("WITgameO");
+        //texts[4].text = "" + PlayerPrefs.GetInt("WITgameO");
         num = PlayerPrefs.GetInt("CNNumGameO");
         
         int c = 0;

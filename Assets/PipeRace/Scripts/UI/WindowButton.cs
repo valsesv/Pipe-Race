@@ -6,7 +6,7 @@ using Zenject;
 [RequireComponent(typeof(Button))]
 public class WindowButton : MonoBehaviour
 {
-    [SerializeField] private MenuWindows windowType;
+    [SerializeField] private WindowType windowType;
     [Inject] private WindowsManager _windowsManager;
     
     

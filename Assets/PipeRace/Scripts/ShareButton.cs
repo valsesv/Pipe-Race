@@ -14,15 +14,4 @@ public class ShareButton : MonoBehaviour
     {
         Application.OpenURL("https://www.instagram.com/daniildemidovich/");
     }
-
-    public void ShareButtonClick()
-    {
-        StartCoroutine(TakeSSAndShare());
-    }
-
-    private IEnumerator TakeSSAndShare()
-    {
-        yield return new WaitForEndOfFrame();
-        new NativeShare().SetSubject("Play Pipe Race!").SetText("Try this game: https://play.google.com/store/apps/details?id=com.DeVandD.PipeRace").Share();
-    }
 }

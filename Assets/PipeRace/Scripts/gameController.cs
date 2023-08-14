@@ -8,14 +8,12 @@ public class gameController : MonoBehaviour
 {
     public GameObject PauseMenu, PauseButton, LevelNext, MoneyCoin;
     public Text ContinueText, GameMoney;
-    private Animator anim;
     public Transform Obstacles;
     public static int ReloadLevel;
     public AudioSource GamePlayMusic;
     public AudioClip Level0, GameMusic;
     private void Awake()
     {
-        anim = ContinueText.GetComponent<Animator>();
         Time.timeScale = 1;
         hazardMove.speed = -0.5f;
         moveScript.speed = 2f;
@@ -93,17 +91,13 @@ public class gameController : MonoBehaviour
     public IEnumerator ContinueGame()
     {
         PauseMenu.SetActive(false);
-        anim.SetBool("isPaused", true);
 
         for (int i = 3; i > 0; i--)
         {
             ContinueText.text = "" + i;
-            anim.speed = 1;
             yield return new WaitForSeconds(0.00001f);
-            anim.speed = 0;
         }
         ContinueText.text = "";
-        anim.SetBool("isPaused", false);
         PauseButton.SetActive(true);
         Time.timeScale = 1;
         GamePlayMusic.Play();

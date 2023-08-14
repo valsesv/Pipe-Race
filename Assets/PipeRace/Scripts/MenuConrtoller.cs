@@ -7,10 +7,9 @@ using UnityEngine.UI;
 public class MenuConrtoller : MonoBehaviour
 {
     public List<Text> Texts = new List<Text>();
-    public List<GameObject> Levels = new List<GameObject>(), ButtonLevels = new List<GameObject>();
     public GameObject SoundOnButton, SoundOffButton, SettingsPanel,
         ShopPannel, panel, levelsPanel, WinPanel;
-    public GameObject gameObj, SorryPanel, Menu, EndZone, PauseButton,
+    public GameObject gameObj, SorryPanel, Menu, PauseButton,
         LeftMove, RightMove, VibrOn, VibrOff;
     public GameObject shopTut;
 
@@ -56,21 +55,6 @@ public class MenuConrtoller : MonoBehaviour
         Texts[1].text = "" + PlayerPrefs.GetInt("WITgameO");
         SoundReg(PlayerPrefs.GetFloat("soundgameO"));
 
-       // QFSW.SIIE.SelectableInversion.clearColor = Color.black;
-        for (int i = 1; i < 25; i++)
-        {
-            if (PlayerPrefs.GetInt("LevelPassed" + i) == 0)
-            {
-                ButtonLevels[i].gameObject.transform.GetChild(0).GetComponent<Text>().text = "";
-                ButtonLevels[i].GetComponent<Image>().sprite = Locked;
-            }
-            if (PlayerPrefs.GetInt("LevelPassed" + i) == 1)
-                ButtonLevels[i].GetComponent<Image>().color = Color.yellow;
-            if (PlayerPrefs.GetInt("LevelPassed" + i) == 2)
-                ButtonLevels[i].GetComponent<Image>().color = Color.white;
-                
-        }
-
         if (PlayerPrefs.HasKey("replaygame"))
         {
             int ok = PlayerPrefs.GetInt("replaygame");
@@ -81,7 +65,7 @@ public class MenuConrtoller : MonoBehaviour
         {
             gameController.ReloadLevel = 0;
         }
-            PlayerPrefs.SetInt("Newlevel", 1);
+        PlayerPrefs.SetInt("Newlevel", 1);
     }
 
     public void SoundReg(float volume)
@@ -120,40 +104,18 @@ public class MenuConrtoller : MonoBehaviour
 
     }
 
-    public void ShopOn()
-    {
-        PlayerPrefs.SetInt("shopTutorial", 1);
-        shopTut.SetActive(false);
-    }
-
-    IEnumerator ShopOff() {
-        yield return new WaitForSeconds(0.6f);
-        ShopPannel.SetActive(false);   
-    }
     public void LoadLevel(int LevelNum)
     {   
         if (PlayerPrefs.GetInt("LevelPassed" + LevelNum) != 0)
         {
+            gameController.ReloadLevel = LevelNum;
             
-            if (gameController.ReloadLevel != LevelNum)
+            if (LevelNum == 31)
             {
-                StartCoroutine(Darkskr());
-            }
-            else
-            {
-                gameObj.SetActive(true);
-                Menu.SetActive(false);
-            }
-                gameController.ReloadLevel = LevelNum;
-            if (LevelNum != 31)
-                EndZone.SetActive(true);
-            else
-            {
-                EndZone.SetActive(false);
                 if (PlayerPrefs.GetInt("Newlevel") == 1)
                     Player.LevelMusicIntroduction(2);
             }
-            Levels[LevelNum].SetActive(true);
+            
             if (PlayerPrefs.GetInt("Newlevel") == 1)
                 Player.LevelMusicIntroduction(PlayerPrefs.GetInt("LevelPassed" + LevelNum) - 1);
             moveScript.countPress++;
@@ -164,12 +126,4 @@ public class MenuConrtoller : MonoBehaviour
             SorryPanel.SetActive(true);
         }
     }
-
-    IEnumerator Darkskr()
-    {
-        yield return new WaitForSeconds(0.3f);
-        gameObj.SetActive(true);
-        Menu.SetActive(false);
-    }
-
 }
